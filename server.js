@@ -12,9 +12,8 @@ const DB_NAME = process.env.DB_NAME;
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-app.listen(PORT, () => console.log(`Server is running on port ${PORT}`))
 
-app.get('/secret', (rec, res) => {
+app.get('/secret', (req, res) => {
     res.sendFile(path.join(__dirname, 'secret.html'))
 })
 
@@ -71,3 +70,5 @@ app.get('/:param*', (req, res) => {
         }
     })
 })
+
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`))
