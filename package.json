@@ -1,0 +1,24 @@
+{
+  "name": "anycard-game",
+  "version": "1.0.0",
+  "description": "Card trick with Javascript & Node.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muath93/card-trick-node.js.git"
+  },
+  "author": "Muath Altayyar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muath93/card-trick-node.js/issues"
+  },
+  "homepage": "https://github.com/muath93/card-trick-node.js#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.16.4",
+    "mongodb": "^3.2.4"
+  }
+}
