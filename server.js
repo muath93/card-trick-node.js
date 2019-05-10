@@ -9,7 +9,7 @@ const URI = process.env.MONGODB_URI || 'mongodb://localhost/database';
 const PORT = process.env.PORT || 3000;
 const DB_NAME = process.env.DB_NAME;
 
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 
@@ -49,17 +49,17 @@ app.get('/:param*', (req, res) => {
             console.log(err);
         } else {
             const db = client.db(DB_NAME);
-            const collectaion = db.collection('names')
+            const collection = db.collection('names')
 
             if (name === 'deleteall') {
-                collectaion.remove({});
+                collection.remove({});
                 res.send('database reset')
             } else {
-                collectaion.find({ name: name }).toArray((err, result) => {
+                collection.find({ name: name }).toArray((err, result) => {
                     if (err) {
                         console.log(err);
                     } else if (result.length) {
-                        const card = result[result.length - 1].card + 'png';
+                        const card = result[result.length - 1].card + '.png';
                         res.sendFile(path.join(__dirname + '/cards/' + card))
                     } else {
                         res.sendStatus(404);
